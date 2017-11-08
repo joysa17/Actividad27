@@ -21,13 +21,16 @@
 		<th>Nombre</th>
 		<th>Precio</th>
 		<th>Eliminar</th>
+		<th>Modificar</th>
 	</tr>
 	<% @category.products.each do |prod| %>
 	<tr>
 		<td><%=prod.name %></td>
 		<td><%=prod.price %></td>
 		<td> 
-		<%= link_to "x", category_products_path(prod), class: "btn btn-primary", method: :delete %> </td>
+		<%= link_to "x", category_product_path(@category, prod), class: "btn btn-primary", method: :delete %> </td>
+		<td><%= link_to 'o', edit_category_path(prod), class: "btn btn-primary" %></td>
+
 	</tr>
 	<%end%>
 </table>
